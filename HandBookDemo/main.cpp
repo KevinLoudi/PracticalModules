@@ -6,15 +6,25 @@ Enviroment: C++ (Dev C++)
 */
 
 #include <iostream>
+#include <vector>
 #include "_stack.h"
+#include "_generic.h"
 using namespace std;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+void applyStack();
 
 int main(int argc, char** argv) {
-	_stack *S = 0;
-	S->push("ab");
-	S->push("cd");
-	S->printstack();
+    applyStack();
+    system("pause");
 	return 0;
+}
+
+void applyStack()
+{
+   //Stack<int> intStack;
+   _stack<int> intStack;
+   for(int i=0;i<10;i++)
+      intStack.push(i);
+    intStack.printstack();
 }
