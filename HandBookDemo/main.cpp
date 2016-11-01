@@ -10,17 +10,30 @@ Enviroment: C++ (Dev C++)
 #include "_stack.h"
 #include "_generic.h"
 #include "_STLdemo.h"
+#include "Algorithms.h"
 using namespace std;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void applyStack();
 void applySTL();
+void applyAlgorithms();
 
 int main(int argc, char** argv) {
     //applyStack();
-    applySTL();
+    //applySTL();
+    applyAlgorithms();
     system("pause");
 	return 0;
+}
+
+void applyAlgorithms()
+{
+  const int SIZE = 9;
+  int list[] = {1, 7, 3, 4, 9, 3, 3, 1, 2};
+  //Algorithms<int> A;
+  //A.bubbleSort(list, SIZE);
+  for (int i = 0; i < SIZE; i++)
+    cout << list[i] << " ";
 }
 
 void applyStack()
@@ -37,5 +50,6 @@ void applyStack()
 void applySTL()
 {
   _STLdemo S;
-  S.withVector();
+  //S.withVector();
+  S.withIterator();
 }

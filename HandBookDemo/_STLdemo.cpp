@@ -22,6 +22,7 @@ void _STLdemo::withVector()
   cout << "size of vector1: " << vector1.size() << endl;
   cout << "size of vector2: " << vector2.size() << endl;
 
+  //double-ended queue
   deque<int> deque1, deque2;
   cout << "Deque: " << endl;
   deque1.push_back(1);
@@ -31,10 +32,34 @@ void _STLdemo::withVector()
   cout << "size of deque2: " << deque2.size() << endl;
   cout << "maximum size of deque1: " << deque1.max_size() << endl;
   cout << "maximum size of deque2: " << deque2.max_size() << endl;
-  list1.swap(list2);
-  cout << "size of deque1: " << deque1.size() << endl;
-  cout << "size of deque2: " << deque2.size() << endl;
-  cout << "deque1 < deque2? " << (deque1 < deque2) << endl << endl;
+}
+
+void _STLdemo::printContains(vector<int> v)
+{
+  vector<int>::iterator it= v.begin();
+  //Not allowed to do modification
+  vector<int>::const_iterator const_it = v.begin();
+
+  for (; it!=v.end();it++)
+  {
+  	cout<<*it<<" ";
+  }
+
+  cout<<endl;
+}
+
+void _STLdemo::withIterator()
+{
+  //create and fill a vector
+  vector<int> intVector;
+  intVector.push_back(10);
+  intVector.push_back(20);
+  intVector.push_back(30);
+  intVector.push_back(40);
+  intVector.push_back(50);
+  intVector.push_back(60);
+
+  printContains(intVector);
 }
 
 _STLdemo::~_STLdemo()
