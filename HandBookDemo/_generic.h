@@ -11,6 +11,8 @@ class _generic
 		template<typename T>
 		void sort(T list[], int listSize);
 		template<typename T>
+		// const the value is not allowed to change 
+		//in the function body
 		void printArray(const T list[], int listSize);
 		~_generic();
 		//I can only use the template-defined functions

@@ -19,6 +19,9 @@ class _stack
 		T peek() const;
 		void push(T value);
 		T pop();
+		//const after a function declaration means 
+		//that the function is not allowed to change 
+		//any class members (except ones that are marked mutable)
 		int getSize() const;
 		//compare the current size of the underlying vector with max_size()
 		bool full();
