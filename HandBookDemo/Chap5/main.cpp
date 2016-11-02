@@ -18,9 +18,22 @@ int main(int argc, char** argv) {
 	{
 		cout << "\n" << "Creating a Book object to print()\n";
 		_book b("Essential C++","Stanley B. Lippman");
-		//dynamic binding
+		//dynamic binding via virtual invocation
 		print(b);
-		
+	}
+	
+	//create and print a audiobook object
+	{
+		cout << "\n" << "Creating a Book object to print()\n";
+		_audioBook a("Essential C++","Stanley B. Lippman","Kevin Zhu");
+		print(a);
+	}
+	
+	//create and print a audiobook object
+	{
+		cout << "\n" << "Creating a magazine object to print()\n";
+		_magazine m("Spectrum Learning","Kevin Zhu","Health Physics");
+		print(m);
 	}
 	system("pause");
 	return 0;
