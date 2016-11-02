@@ -11,19 +11,28 @@ Enviroment: C++ (Dev C++)
 #include "_generic.h"
 #include "_STLdemo.h"
 #include "Algorithms.h"
+#include "_libMat.h" 
 using namespace std;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void applyStack();
 void applySTL();
 void applyAlgorithms();
+void applyLibmat(); 
 
 int main(int argc, char** argv) {
     //applyStack();
     //applySTL();
-    applyAlgorithms();
+    //applyAlgorithms();
+    applyLibmat();
     system("pause");
 	return 0;
+}
+
+void applyLibmat()
+{
+	_libMat *LM;
+	LM->print();
 }
 
 void applyAlgorithms()
