@@ -4,28 +4,29 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 int applyBankAccount();
 void usestock();
+void usestocktmp();
 
 int main(int argc, char** argv) {
 	using std::string;
 	//applyBankAccount();
-	usestock();
+	//usestock();
+	usestocktmp();
 	system("pause");
 	return 0;
 }
 
-void usestock()
+void usestocktmp()
 {
-	Stock fluffy_the_cat;
-    fluffy_the_cat.acquire("NanoSmart", 20, 12.50);
-    fluffy_the_cat.show();
-    fluffy_the_cat.buy(15, 18.125);
-    fluffy_the_cat.show();
-    fluffy_the_cat.sell(400, 20.00);
-    fluffy_the_cat.show();
-    fluffy_the_cat.buy(300000,40.125);
-    fluffy_the_cat.show();
-    fluffy_the_cat.sell(300000,0.125);
-    fluffy_the_cat.show();
+	const int STKS=4;
+	//create an array of initialized objects
+	Stock stocks[STKS]={
+		Stock("NanoSmart", 12, 20.0),
+        Stock("Boffo Objects", 200, 2.0),
+        Stock("Monolithic Obelisks", 130, 3.25),
+        Stock("Fleep Enterprises", 60, 6.5)
+	};
+	
+	
 }
 
 int applyBankAccount()

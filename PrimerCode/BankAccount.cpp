@@ -65,28 +65,20 @@ void BankAccount::withdraw(double sum)
 	}
 }
 
-void Stock::acquire(const std::string & co, long n, double pr)
+//We can not bring default value in denfination
+Stock::Stock(const std::string & co, long n, double pr):company(co),shares(n),share_val(pr)
 {
-	//set company name
-    company = co;
-    if (n < 0)
-    {
-        std::cerr << "Number of shares can't be negative; "
-                  << company << " shares set to 0.\n";
-        shares = 0;
-    }
-    else
-        //set share num
-        shares = n;
-    //set share price
-    share_val = pr;
-    //calculate total price
-    set_tot();
+	std::cout<<"build a stock object!";
+}
+
+Stock::~Stock()
+{
+	std::cout<<"release a stock object!";
 }
 
 void Stock::buy(long num, double price)
 {
-     if (num < 0)
+    if (num < 0)
     {
         std::cerr << "Number of shares purchased can't be negative. "
              << "Transaction is aborted.\n";
@@ -99,50 +91,38 @@ void Stock::buy(long num, double price)
     }
 }
 
-void Stock::sell(long num, double price)
-{
-    using std::cerr;
-    if (num < 0)
-    {
-        cerr << "Number of shares sold can't be negative. "
-             << "Transaction is aborted.\n";
-    }
-    else if (num > shares)
-    {
-        cerr << "You can't sell more than you have! "
-             << "Transaction is aborted.\n";
-    }
-    else
-    {
-        shares -= num;
-        share_val = price;
-        set_tot();
-    }
-}
-
 void Stock::update(double price)
 {
     share_val = price;
     set_tot();
 }
 
-void Stock::show()
+void Stock::show() const
 {
-	using std::cout;
-	using std::ios_base;
-	
-	ios_base::fmtflags orig=cout.setf(ios_base::fixed);
-	int prec=cout.precision(3);
-	
+    using std::cout;
+    using std::ios_base;
+    // set format to #.###
+    ios_base::fmtflags orig = 
+        cout.setf(ios_base::fixed, ios_base::floatfield); 
+    std::streamsize prec = cout.precision(3);
+
     cout << "Company: " << company
-              << "  Shares: " << shares << '\n';
-    cout<< "  Share Price: $" << share_val;
-    
+        << "  Shares: " << shares << '\n';
+    cout << "  Share Price: $" << share_val;
+    // set format to #.##
     cout.precision(2);
-    cout<< "  Total Worth: $" << total_val << '\n';
-    
+    cout << "  Total Worth: $" << total_val << '\n';
+
     // restore original format
     cout.setf(orig, ios_base::floatfield);
     cout.precision(prec);
 }
 
+const Stock & Stock::topval(const Stock & s) const
+{
+	//demo use of special pointer -- this
+    if (s.total_val > total_val)
+        return s;
+    else
+        return *this; 
+}
