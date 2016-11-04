@@ -3,7 +3,7 @@
 
 #include<vector>
 #include<iostream>
-#include<thread>
+#include <algorithm>
 using namespace std;
 
 typedef unsigned int UINT;
@@ -64,7 +64,8 @@ class num_sequence
 		
 	protected:
 		static const int _max_elems=1024;
-		
+		//the only method derived class have to specify is 
+		//the way to generate a sequences
 		virtual void gen_elems(int pos) const=0;
 		int _calc_pos(UINT elem) const;
 		bool check_integrity(int pos,int size) const;
@@ -74,6 +75,20 @@ class num_sequence
 		int _length;
 		int _beg_pos;
 		vector<UINT> &_relems;
+};
+
+class Fibonacci: public num_sequence
+{
+	public:
+		Fibonacci(int beg_pos,int len):num_sequence(beg_pos,len,_elems)
+		{
+			cout<<"build a fibonacci object.";
+		}
+		
+		virtual num_sequence *clone() const;
+	protected:
+		virtual void gen_elems(int) const;
+		static vector<UINT> _elems;
 };
 
 #endif
