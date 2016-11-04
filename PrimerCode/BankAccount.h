@@ -55,7 +55,24 @@ class Stock
 	const Stock & topval(const Stock & s) const;
 };
 
+//demostrate ADT 
+typedef unsigned long Item;
 
-
+class Stack
+{
+	private:
+		enum {MAX=100};
+	    Item items[MAX];
+	    int top;
+	public:
+		Stack();
+		//'const' promise the function will not modify data fields
+		bool isempty() const;
+    	bool isfull() const;
+    	// push() returns false if stack already is full, true otherwise
+    	bool push(const Item & item);   // add item to stack
+    	// pop() returns false if stack already is empty, true otherwise
+    	bool pop(Item & item);          // pop top into item
+};
 
 #endif
